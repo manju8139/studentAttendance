@@ -10,7 +10,7 @@ function Anavbar() {
         <>
             <div className="navbar">
                 <img src='images/logo2.jpg' alt='welcome' className='logodesign' />
-                <div>
+                <div className="navbar-links">
                     <Link to='/adminhome'>Home</Link>
                     <Link to='/studentsignup'>Add Student</Link>
                     <Link to='/fsignup'>Add Staff</Link>

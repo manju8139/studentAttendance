@@ -10,7 +10,7 @@ function Snavbar() {
         <>
             <div className="navbar">
                 <img src='images/attendance.jpg' alt='welcome' className='logodesign' />
-                <div>
+                <div className="navbar-links">
                     <Link to='/studenthome'>Home</Link>
                     <Link to='/sprofile'>Student Details</Link>
                     {/* <Link to='/sattendance'>Mark Attendance</Link> */}

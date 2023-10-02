@@ -10,7 +10,7 @@ function FnavBar() {
         <>
             <div className="navbar">
                 <img src='images/stafflogo.png' alt='welcome' className='logodesign' />
-                <div>
+                <div className="navbar-links">
                     <Link to='/facultyhome'>Home</Link>
                     <Link to='/selectstudent'>Student Details</Link>
                     <Link to='/attendance'>Take Attendance</Link>
