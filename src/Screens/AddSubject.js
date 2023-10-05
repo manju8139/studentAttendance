@@ -71,18 +71,12 @@ function AddSubject() {
                 </div>
                 <div>
                     <label htmlFor="semester">Role:</label>
-                    <select
-                        id="semester"
-                        name="role" // Add the name attribute
-                        value={formData.role}
-                        onChange={handleSemChange}
-                        required
-                    >
-                        {['FULL STACK DEVELOPER', 'FRONT END DEVELOPER', 'BACK END DEVELOPER', 'SOFTWARE TESTER'].map((role) => (
-                            <option key={role} value={role}>
-                                {role}
-                            </option>
-                        ))}
+                    <select onChange={handleChange} name="role" >
+                        <option value="">Select Role</option>
+                        <option value="FULL STACK DEVELOPER">FULL STACK DEVELOPER</option>
+                        <option value="FRONT END DEVELOPER">FRONT END DEVELOPER</option>
+                        <option value="BACK END DEVELOPER">BACK END DEVELOPER</option>
+                        <option value="SOFTWARE TESTER">SOFTWARE TESTER</option>
                     </select>
                 </div>
                 {/* <div>
