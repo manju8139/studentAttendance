@@ -25,7 +25,7 @@ function SelectStudents() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Subject/GetAll");
+            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Domain/GetAll");
             console.log("result:", result.data.value);
             setSubject(result.data.value);
         }
@@ -35,29 +35,32 @@ function SelectStudents() {
     return (
         <div>
             <FnavBar />
+            <h1>EMPLOYEE DETAILS</h1>
+            <hr />
             <div>
-                <h1>Select Semester</h1>
+                <h1>Select Role</h1>
                 <select onChange={changeSemHandler} id="sem" name="sem">
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
-                    <option value='6'>6</option>
+                    <option value="">Select Role</option>
+                    <option value="FULL STACK DEVELOPER">FULL STACK DEVELOPER</option>
+                    <option value="FRONT END DEVELOPER">FRONT END DEVELOPER</option>
+                    <option value="BACK END DEVELOPER">BACK END DEVELOPER</option>
+                    <option value="SOFTWARE TESTER">SOFTWARE TESTER</option>
                 </select>
             </div>
 
             <div>
-                <h1>Select Dept</h1>
+                <h1>Select Domain</h1>
                 <select onChange={changeDpHandler} id="dept" name="dept">
+                    <option value="">Select Domain</option>
                     {subject.map((item) => {
-                        return <option key={item.id} value={item.dept}>{item.dept}</option>
+                        return <option key={item.id} value={item.dname}>{item.dname}</option>
                     })}
                 </select>
             </div>
-            <div><h3>Selected Sem : {state.sem} - Selected Dept: {state.dept} </h3></div>
+            <div><h3>Selected Role : {state.sem} - Selected Domain: {state.dept} </h3></div>
             {/* <button className='button' onClick={submitHandler}>Select</button> */}
             <Link to='/fviewstudent' className='linkbutton'>View Student Details</Link>
+
         </div>
     )
 }

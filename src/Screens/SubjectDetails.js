@@ -7,7 +7,7 @@ function SubjectDetails() {
         <div className='divdesign'>
             <Anavbar />
             <div>
-                <h1>Subject Details</h1>
+                <h1>Domain Details</h1>
                 <hr />
                 <SubjectDisplay />
             </div>

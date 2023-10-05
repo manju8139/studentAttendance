@@ -69,7 +69,7 @@ function StaffDisplay() {
                 ) : (
                     <>
                         <table>
-                            <tr><th>STAFF ID</th><th>NAME</th><th>DEPARTMENT</th><th>ACTION</th></tr>
+                            <tr><th>MANAGER ID</th><th>NAME</th><th>DOMAIN</th><th>ACTION</th></tr>
                             {state.data && state.data.map((staff) => {
                                 return <tr key={staff.id}><td>{staff.id}</td><td>{staff.name}</td><td>{staff.department}</td><td><button onClick={() => deleteHandler(staff.id)} className='button'>Delete</button></td></tr>
                             })}

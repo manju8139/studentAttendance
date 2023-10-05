@@ -10,8 +10,8 @@ function NavBar() {
                 <div className="navbar-links">
                     <Link to='/'>Home</Link>
                     <Link to='/adminlogin'>Admin</Link>
-                    <Link to='/flogin'>Staff Login</Link>
-                    <Link to='/studentlogin'>Student Login</Link>
+                    <Link to='/flogin'>Manager Login</Link>
+                    <Link to='/studentlogin'>Employee Login</Link>
                     <Link to='/contact'>Contact</Link>
                 </div>
 

@@ -10,7 +10,7 @@ function FacultySignup() {
         name: '',
         dob: '',
         gender: 'Male',
-        email: 'email',
+        email: '',
         phone: '',
         address: '',
         city: '',
@@ -22,7 +22,7 @@ function FacultySignup() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Subject/GetAll");
+            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Domain/GetAll");
             // console.log("result:", result.data.value);
             setSubject(result.data.value);
         }
@@ -36,8 +36,8 @@ function FacultySignup() {
 
     // Use a filtered array to store objects with unique department names
     const uniqueDept = subject.filter((item) => {
-        if (!uniqueDeptSet.has(item.dept)) {
-            uniqueDeptSet.add(item.dept);
+        if (!uniqueDeptSet.has(item.dname)) {
+            uniqueDeptSet.add(item.dname);
             return true;
         }
         return false;
@@ -76,7 +76,7 @@ function FacultySignup() {
             name: '',
             dob: '',
             gender: 'Male',
-            email: 'email',
+            email: '',
             phone: '',
             address: '',
             city: '',
@@ -90,7 +90,7 @@ function FacultySignup() {
         <>
             <Anavbar />
 
-            <h1>Faculty Sign-up</h1>
+            <h1>Manager Sign-up</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Name</label>
                 <input
@@ -185,14 +185,14 @@ function FacultySignup() {
                     required
                 />
 
-                <label htmlFor="department">Department</label>
+                <label htmlFor="department">Domain</label>
                 <select value={formData.department}
                     onChange={handleChange}
                     id="department"
                     name="department">
-                    <option value="">Select Department</option>
+                    <option value="">Select Domain</option>
                     {uniqueDept.map((item) => {
-                        return <option key={item.id} value={item.dept}>{item.dept}</option>
+                        return <option key={item.id} value={item.dname}>{item.dname}</option>
                     })}
                 </select>
 

@@ -8,7 +8,7 @@ function DisplayScreen() {
         <div className='divdesign'>
             <Anavbar />
             <div>
-                <h1>Student Details</h1>
+                <h1>Employee Details</h1>
                 <StudentDisplay />
             </div>
             <hr />

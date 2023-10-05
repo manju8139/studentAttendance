@@ -13,10 +13,10 @@ function MarkAttendance() {
         dispatch({ type: 'SELECT_SEM', payload: value })
     }
 
-    const changeSubHandler = (e) => {
-        const value = e.target.value;
-        dispatch({ type: 'SELECT_SUB', payload: value })
-    }
+    // const changeSubHandler = (e) => {
+    //     const value = e.target.value;
+    //     dispatch({ type: 'SELECT_SUB', payload: value })
+    // }
 
     const changeDpHandler = (e) => {
         console.log("value=", e.target.value);
@@ -30,7 +30,7 @@ function MarkAttendance() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Subject/GetAll");
+            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Domain/GetAll");
             console.log("result:", result.data.value);
             setSubject(result.data.value);
         }
@@ -61,33 +61,26 @@ function MarkAttendance() {
             <FnavBar />
             <div><h1>Mark Attendance-Date: {state.date}</h1></div>
             <div>
-                <h1>Select Semester</h1>
+                <h1>Select Role</h1>
                 <select onChange={changeSemHandler}>
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
-                    <option value='6'>6</option>
+                    <option value="">Select Role</option>
+                    <option value="FULL STACK DEVELOPER">FULL STACK DEVELOPER</option>
+                    <option value="FRONT END DEVELOPER">FRONT END DEVELOPER</option>
+                    <option value="BACK END DEVELOPER">BACK END DEVELOPER</option>
+                    <option value="SOFTWARE TESTER">SOFTWARE TESTER</option>
                 </select>
             </div>
             <div>
-                <h1>Select subject</h1>
-                <select onChange={changeSubHandler}>
-                    {subject && subject.map((item) => {
-                        return <option key={item.id} value={item.name}>{item.name}</option>
-                    })}
-                </select>
-            </div>
-            <div>
-                <h1>Select Dept</h1>
+                <h1>Select Domain</h1>
                 <select onChange={changeDpHandler}>
-                    {subject.map((item) => {
-                        return <option key={item.id} value={item.dept}>{item.dept}</option>
+                    <option value="">Select Domain</option>
+                    {subject && subject.map((item) => {
+                        return <option key={item.id} value={item.dname}>{item.dname}</option>
                     })}
                 </select>
             </div>
-            <div><h3>Selected Sem : {state.sem} - Selected Dept: {state.dept} - Selected Subject: {state.subject}</h3></div>
+
+            <div><h3>Selected Role : {state.sem} - Selected Domain: {state.dept}</h3></div>
             {/* <button className='button' onClick={submitHandler}>Select</button> */}
             <Link className='linkbutton' to='/takeattendance'>Take Attendance</Link>
         </>

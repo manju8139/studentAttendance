@@ -7,7 +7,7 @@ function StaffDeatails() {
         <div className='divdesign'>
             <Anavbar />
             <div>
-                <h1>Staff Details</h1>
+                <h1>Manager Details</h1>
                 <hr />
                 <StaffDisplay />
             </div>

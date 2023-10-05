@@ -8,10 +8,10 @@ const initialState = {
     date: Date(),
     fdate: '',
     tdate: '',
-    sem: '1',
+    sem: 'FULL STACK DEVELOPER',
     studid: 0,
     subject: 'C',
-    dept: 'cs',
+    dept: '',
     count2: 0,
 };
 

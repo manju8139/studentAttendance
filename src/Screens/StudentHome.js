@@ -11,7 +11,7 @@ function StudentHome() {
         <>
             <Snavbar />
             <div className='login'>
-                <h1>WELCOME - {username}</h1>
+                <h1>WELCOME STUDENT - {username}</h1>
             </div>
         </>
     )

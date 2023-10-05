@@ -21,10 +21,10 @@ function FviewStudent() {
     return (
         <div>
             <FnavBar />
-            <h1>STUDENT LIST</h1>
+            <h1>EMPLOYEE LIST</h1>
             <hr />
             <table>
-                <tr><th>STUDENT ID</th><th>NAME</th><th>SEM</th><th>DEPARTMENT</th></tr>
+                <tr><th>EMPLOYEE ID</th><th>NAME</th><th>SEM</th><th>ROLE</th></tr>
 
                 {
                     filterStudentData.map((student) => {

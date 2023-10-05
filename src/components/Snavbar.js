@@ -12,7 +12,7 @@ function Snavbar() {
                 <img src='images/attendance.jpg' alt='welcome' className='logodesign' />
                 <div className="navbar-links">
                     <Link to='/studenthome'>Home</Link>
-                    <Link to='/sprofile'>Student Details</Link>
+                    <Link to='/sprofile'>Employee Profile</Link>
                     {/* <Link to='/sattendance'>Mark Attendance</Link> */}
                     <Link to='/fviewattendance'>View Attendance</Link>
                     <Link to='/sattendanceavg'>Attendance Average</Link>

@@ -11,7 +11,7 @@ function FacultyHome() {
         <>
             <FnavBar />
             <div className='homepage'>
-                <h1>WELCOME {username}</h1>
+                <h1>WELCOME MANAGER - {username}</h1>
             </div>
         </>
     )

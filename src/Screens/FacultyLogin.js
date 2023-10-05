@@ -55,7 +55,7 @@ function FacultyLogin() {
         <>
             <NavBar />
             <div className="login-container">
-                <h2>Faculty Login</h2>
+                <h2>MANAGER Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="input-container">
                         <label htmlFor="username">Username</label>

@@ -57,26 +57,25 @@ function ViewAttendance() {
         <div>
             {/* <FnavBar /> */}
             <div>
-                <h1>Select Semester</h1>
+                <h1>Select Role</h1>
                 <select onChange={handleChange} id="sem" name="sem">
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
-                    <option value='6'>6</option>
+                    <option value="">Select Role</option>
+                    <option value="1">FULL STACK DEVELOPER</option>
+                    <option value="2">FRONT END DEVELOPER</option>
+                    <option value="3">BACK END DEVELOPER</option>
+                    <option value="4">SOFTWARE TESTER</option>
                 </select>
             </div>
 
             <div>
-                <h1>Select Dept</h1>
+                <h1>Select Role</h1>
                 <select onChange={handleChange} id="dept" name="dept">
                     {subject.map((item) => {
                         return <option key={item.id} value={item.dept}>{item.dept}</option>
                     })}
                 </select>
             </div>
-            <div><h3>Selected Sem : {state.sem} - Selected Dept: {state.dept} - Selected Subject: {state.subject} </h3></div>
+            <div><h3>Selected Sem : {state.sem} - Selected Role: {state.dept} - Selected Domain: {state.subject} </h3></div>
             {/* <button className='button' onClick={submitHandler}>Select</button> */}
             <button className='button' onClick={clickHandler}>View Attendance List</button>
         </div>

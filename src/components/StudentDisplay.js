@@ -66,7 +66,7 @@ function StudentDisplay() {
         <div>
             <hr />
             <table>
-                <tr><th>STUDENT ID</th><th>NAME</th><th>SEM</th><th>DEPARTMENT</th><th>EMAIL</th><th>PHONE</th><th>ACTION</th></tr>
+                <tr><th>EMPLOYEE ID</th><th>NAME</th><th>ROLE</th><th>ROLE</th><th>EMAIL</th><th>PHONE</th><th>ACTION</th></tr>
                 {
                     state.loading ? (
                         <h1>...loading</h1>

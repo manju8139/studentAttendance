@@ -14,12 +14,12 @@ function StudentSignup() {
         address: '',
         city: '',
         state: '',
-        semister: '1',
+        semister: 'FULL STACK DEVELOPER',
     });
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Subject/GetAll");
+            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Domain/GetAll");
             // console.log("result:", result.data.value);
             setSubject(result.data.value);
         }
@@ -34,8 +34,8 @@ function StudentSignup() {
 
     // Use a filtered array to store objects with unique department names
     const uniqueDept = subject.filter((item) => {
-        if (!uniqueDeptSet.has(item.dept)) {
-            uniqueDeptSet.add(item.dept);
+        if (!uniqueDeptSet.has(item.dname)) {
+            uniqueDeptSet.add(item.dname);
             return true;
         }
         return false;
@@ -99,14 +99,14 @@ function StudentSignup() {
             address: '',
             city: '',
             state: '',
-            semister: '1',
+            semister: 'FULL STACK DEVELOPER',
         });
     };
     return (
         <>
             <Anavbar />
 
-            <h1>Student Sign-up</h1>
+            <h1>Employee Sign-up</h1>
             <form onSubmit={handleSubmit} className='formdesign'>
 
                 <label htmlFor="name">Name</label>
@@ -143,14 +143,14 @@ function StudentSignup() {
                     <option value="Other">Other</option>
                 </select>
 
-                <label htmlFor="department">Department</label>
+                <label htmlFor="department">Domain</label>
                 <select value={formData.department}
                     onChange={handleChange}
                     id="department"
                     name="department">
-                    <option value="">Select Department</option>
+                    <option value="">Select Domain</option>
                     {uniqueDept.map((item) => {
-                        return <option key={item.id} value={item.dept}>{item.dept}</option>
+                        return <option key={item.id} value={item.dname}>{item.dname}</option>
                     })}
                 </select>
 
@@ -203,20 +203,19 @@ function StudentSignup() {
                     required
                 />
 
-                <label htmlFor="semester">semester</label>
+                <label htmlFor="semester">Role</label>
                 <select
                     id="semister"
                     name="semister"
                     value={formData.semister}
                     onChange={handleChange}
                 >
-                    <option value="">Select Sem</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
+                    <option value="">Select Role</option>
+                    <option value="FULL STACK DEVELOPER">FULL STACK DEVELOPER</option>
+                    <option value="FRONT END DEVELOPER">FRONT END DEVELOPER</option>
+                    <option value="BACK END DEVELOPER">BACK END DEVELOPER</option>
+                    <option value="SOFTWARE TESTER">SOFTWARE TESTER</option>
+
                 </select>
 
 

@@ -4,9 +4,8 @@ import axios from 'axios';
 
 function AddSubject() {
     const [formData, setFormData] = useState({
-        name: '',
-        dept: '',
-        sem: '1',
+        dname: '',
+        role: '',
     });
 
     const handleChange = (e) => {
@@ -31,7 +30,7 @@ function AddSubject() {
         e.preventDefault();
 
         axios
-            .post('https://attendancemanagementapi.azurewebsites.net/api/Subject/CreateEdit', formData)
+            .post('https://attendancemanagementapi.azurewebsites.net/api/Domain/CreateEdit', formData)
             .then((response) => {
                 // Handle the response from the server, e.g., show a success message or redirect
                 console.log('Subject saved successfully:', response.data);
@@ -48,9 +47,8 @@ function AddSubject() {
 
         // Reset the form fields if needed
         setFormData({
-            name: '',
-            dept: '',
-            sem: '1',
+            dname: '',
+            role: '1',
         });
     };
 
@@ -61,34 +59,34 @@ function AddSubject() {
             <form onSubmit={handleSubmit} className='formdesign'>
 
                 <div>
-                    <label htmlFor="subjectName">Subject Name:</label>
+                    <label htmlFor="subjectName">Domain Name:</label>
                     <input
                         type="text"
                         id="subjectName"
-                        name="name" // Add the name attribute
-                        value={formData.name}
+                        name="dname" // Add the name attribute
+                        value={formData.dname}
                         onChange={handleChange}
                         required
                     />
                 </div>
                 <div>
-                    <label htmlFor="semester">Semester:</label>
+                    <label htmlFor="semester">Role:</label>
                     <select
                         id="semester"
-                        name="sem" // Add the name attribute
-                        value={formData.sem}
+                        name="role" // Add the name attribute
+                        value={formData.role}
                         onChange={handleSemChange}
                         required
                     >
-                        {[1, 2, 3, 4, 5, 6].map((sem) => (
-                            <option key={sem} value={sem}>
-                                {sem}
+                        {['FULL STACK DEVELOPER', 'FRONT END DEVELOPER', 'BACK END DEVELOPER', 'SOFTWARE TESTER'].map((role) => (
+                            <option key={role} value={role}>
+                                {role}
                             </option>
                         ))}
                     </select>
                 </div>
-                <div>
-                    <label htmlFor="course">Course:</label>
+                {/* <div>
+                    <label htmlFor="course">Domain:</label>
                     <input
                         type="text"
                         id="course"
@@ -97,7 +95,7 @@ function AddSubject() {
                         onChange={handleChange}
                         required
                     />
-                </div>
+                </div> */}
                 <button type="submit">Submit</button>
             </form>
         </div>

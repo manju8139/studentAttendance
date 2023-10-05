@@ -133,12 +133,12 @@ function TakeAttendance() {
         <div>
             <FnavBar />
             <div className='maindiv'>
-                <Link className='linkbutton' to='/attendance'>Select Subject</Link>
+                <Link className='linkbutton' to='/attendance'>Select Domain</Link>
                 <div className='headingatd'>
                     <h1>Take Attendance</h1><h3>Date: {state.date}</h3>
                 </div>
 
-                <div><h3>Selected Sem :<b> {state.sem}</b> - Selected Dept: <b>{state.dept}</b> - Selected Subject: <b>{state.subject}</b></h3></div>
+                <div><h3>Selected Sem :<b> {state.sem}</b> - Selected Role: <b>{state.dept}</b> - Selected Domain: <b>{state.subject}</b></h3></div>
                 <div>
                     {statedata.loading ? (
                         <h1>...loading</h1>
@@ -148,6 +148,7 @@ function TakeAttendance() {
                                 <h5>{student.id}</h5>
                                 <h5>{student.name}</h5>
                                 <h5>{student.semister}</h5>
+                                <h5>{student.department}</h5>
                                 <div className='checkbox'>
                                     <input
                                         type='checkbox'
@@ -161,12 +162,12 @@ function TakeAttendance() {
                     )}
                     <button className='button' onClick={clickHandler}>Submit</button>
                 </div>
-                <div><h1>No of Students Present-{state.count2}</h1></div>
+                <div><h1>No of Employee's Present-{state.count2}</h1></div>
                 <div className='atdbucket'>
                     <h1>Attendance Bucket</h1>
                     {selectedStudents && selectedStudents.map((student) => {
                         return <div key={student.studid}>
-                            <h5>{student.studid} - {student.name} - {student.semister}</h5>
+                            <h5>{student.studid} - {student.name} - {student.semister} - {student.department}</h5>
                         </div>
                     })}
                 </div>

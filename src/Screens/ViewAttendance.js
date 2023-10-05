@@ -55,11 +55,11 @@ function ViewAttendance() {
                             <td><h4>{state.sem}</h4></td>
                         </tr>
                         <tr>
-                            <td><label>Department:</label></td>
+                            <td><label>ROLE:</label></td>
                             <td><h4>{state.dept}</h4></td>
                         </tr>
                         <tr>
-                            <td><label>Subject:</label></td>
+                            <td><label>DOMAIN:</label></td>
                             <td><h4>{state.subject}</h4></td>
                         </tr>
                     </tbody>

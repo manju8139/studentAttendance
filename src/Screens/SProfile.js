@@ -5,7 +5,7 @@ function SProfile() {
     return (
         <div>
             <Snavbar />
-            <h1>Student Profile</h1>
+            <h1>Employee Profile</h1>
             <hr />
         </div>
     )

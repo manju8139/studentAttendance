@@ -22,7 +22,7 @@ function SAttendanceAverage() {
                 const result = await axios.get(`https://attendancemanagementapi.azurewebsites.net/api/Attendance/Getstudentbyid?studid=${studentid}`);
                 console.log("result:", result.data.value);
                 setMainData(result.data.value);
-                const result1 = await axios("https://attendancemanagementapi.azurewebsites.net/api/Subject/GetAll");
+                const result1 = await axios("https://attendancemanagementapi.azurewebsites.net/api/Domain/GetAll");
                 console.log("result1:", result1.data.value);
                 setSubject(result1.data.value);
             } catch (error) {
@@ -68,11 +68,11 @@ function SAttendanceAverage() {
         dispatch({ type: 'SET_TDATE', payload: value });
     }
 
-    const changeSubHandler = (e) => {
+    const changeDpHandler = (e) => {
         const value = e.target.value;
         console.log("subject selected", value);
         console.log("in sub change Handler atdData", atdData);
-        dispatch({ type: 'SELECT_SUB', payload: value });
+        dispatch({ type: 'SELECT_DEPT', payload: value });
         // const filterSubData = atdData && atdData.filter((student) => {
         //     console.log(student.subject)
         //     return state.subject === student.subject
@@ -84,7 +84,7 @@ function SAttendanceAverage() {
         <div>
             <Snavbar />
             <div className='heading1'>
-                <h1>View Attendance for Student ID: {studid}</h1>
+                <h1>View Attendance for Employee ID: {studid}</h1>
                 <h3>From Date: {state.fdate} - To Date: {state.tdate}</h3>
             </div>
             <hr />
@@ -98,17 +98,18 @@ function SAttendanceAverage() {
                     <input type='date' onChange={changetDateHandler} className='date' id='date' />
                 </div>
                 <div>
-                    <h3>Select subject - {state.subject}</h3>
-                    <select onChange={changeSubHandler}>
+                    <h3>Select Domain - {state.dept}</h3>
+                    <select onChange={changeDpHandler}>
+                        <option value="">Select Domain</option>
                         {subject.map((item) => {
-                            return <option key={item.id} value={item.name}>{item.name}</option>
+                            return <option key={item.id} value={item.dname}>{item.dname}</option>
                         })}
                     </select>
                 </div>
             </div>
             <div>
                 {atdData && atdData.map((student, index) => (
-                    <h1 key={index}>{student.studid} - {student.studentName} - {student.date} - {student.subject}</h1>
+                    <h1 key={index}>{student.studid} - {student.studentName} - {student.department}</h1>
                 ))}
             </div>
             <hr />

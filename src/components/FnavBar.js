@@ -12,9 +12,9 @@ function FnavBar() {
                 <img src='images/stafflogo.png' alt='welcome' className='logodesign' />
                 <div className="navbar-links">
                     <Link to='/facultyhome'>Home</Link>
-                    <Link to='/selectstudent'>Student Details</Link>
+                    <Link to='/selectstudent'>Employee Details</Link>
                     <Link to='/attendance'>Take Attendance</Link>
-                    <Link to='/fviewattendance'>View Attendance</Link>
+                    <Link to='/awoid'>View Attendance</Link>
                     <Link to='/' onClick={handleLogout}>Logout</Link>
                 </div>
 

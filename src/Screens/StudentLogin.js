@@ -55,7 +55,7 @@ function StudentLogin() {
         <>
             <NavBar />
             <div className="login-container">
-                <h2>Student Login</h2>
+                <h2>Employee Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="input-container">
                         <label htmlFor="username">Username</label>

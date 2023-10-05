@@ -1,10 +1,10 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import FnavBar from '../components/FnavBar'
+import axios from 'axios';
 import { Store } from '../Store';
+import { Link } from 'react-router-dom';
 
-
-function SelectAttendance() {
+function AttendanceWoId() {
     const [subject, setSubject] = useState([]);
     const { state, dispatch } = useContext(Store);
 
@@ -13,10 +13,10 @@ function SelectAttendance() {
         dispatch({ type: 'SELECT_SEM', payload: value })
     }
 
-    const changeSubHandler = (e) => {
-        const value = e.target.value;
-        dispatch({ type: 'SELECT_SUB', payload: value })
-    }
+    // const changeSubHandler = (e) => {
+    //     const value = e.target.value;
+    //     dispatch({ type: 'SELECT_SUB', payload: value })
+    // }
 
     const changeDpHandler = (e) => {
         console.log("value=", e.target.value);
@@ -42,7 +42,7 @@ function SelectAttendance() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Subject/GetAll");
+            const result = await axios("https://attendancemanagementapi.azurewebsites.net/api/Domain/GetAll");
             console.log("result:", result.data.value);
             setSubject(result.data.value);
         }
@@ -61,16 +61,18 @@ function SelectAttendance() {
 
     // Use a filtered array to store objects with unique department names
     const uniqueDept = subject.filter((item) => {
-        if (!uniqueDeptSet.has(item.dept)) {
-            uniqueDeptSet.add(item.dept);
+        if (!uniqueDeptSet.has(item.dname)) {
+            uniqueDeptSet.add(item.dname);
             return true;
         }
         return false;
     });
     console.log("uniqueDept", uniqueDept);
     return (
-        <div>
-
+        <>
+            <FnavBar />
+            <h1>Attendance List</h1>
+            <hr />
             <div className='heading1'>
                 <h1>View Attendance</h1>
                 <h3>From Date: {state.fdate} - To Date: {state.tdate}</h3>
@@ -91,35 +93,30 @@ function SelectAttendance() {
                 <h1>Select Role</h1>
                 <select onChange={changeSemHandler}>
                     <option value="">Select Role</option>
-                    <option value="1">FULL STACK DEVELOPER</option>
-                    <option value="2">FRONT END DEVELOPER</option>
-                    <option value="3">BACK END DEVELOPER</option>
-                    <option value="4">SOFTWARE TESTER</option>
+                    <option value="FULL STACK DEVELOPER">FULL STACK DEVELOPER</option>
+                    <option value="FRONT END DEVELOPER">FRONT END DEVELOPER</option>
+                    <option value="BACK END DEVELOPER">BACK END DEVELOPER</option>
+                    <option value="SOFTWARE TESTER">SOFTWARE TESTER</option>
                 </select>
             </div>
+
             <div>
-                <h1>Select Domian</h1>
-                <select onChange={changeSubHandler}>
-                    {subject.map((item) => {
-                        return <option key={item.id} value={item.name}>{item.name}</option>
-                    })}
-                </select>
-            </div>
-            <div>
-                <h1>Select Role</h1>
+                <h1>Select Domain</h1>
                 <select onChange={changeDpHandler}>
+                    <option value="">Select Domian</option>
                     {uniqueDept.map((item) => {
-                        return <option key={item.id} value={item.dept}>{item.dept}</option>
+                        return <option key={item.id} value={item.dname}>{item.dname}</option>
                     })}
                 </select>
             </div>
-            <div><h3>Selected Sem : {state.sem} - Selected Role: {state.dept} - Selected Domain: {state.subject}</h3></div>
+            <div><h3>Date : {state.date} - Selected Role : {state.sem} - Selected Dept: {state.dept}</h3></div>
             {/* <button className='button' onClick={submitHandler}>Select</button> */}
 
-            <Link className='linkbutton' to='/viewattendance'>View Attendance</Link>
+            <Link className='linkbutton' to='/awoid1'>View Attendance</Link>
 
-        </div>
+
+        </>
     )
 }
 
-export default SelectAttendance
+export default AttendanceWoId

@@ -25,6 +25,8 @@ import FViewAttendance1 from './Screens/FViewAttendance1';
 import StaffDeatails from './Screens/StaffDeatails';
 import SubjectDetails from './Screens/SubjectDetails';
 import SAttendanceAverage from './Screens/SAttendanceAverage';
+import AttendanceWoId from './Screens/AttendanceWoId';
+import AttendanceWoId1 from './Screens/AttendanceWoId1';
 
 function App() {
   return (
@@ -56,6 +58,8 @@ function App() {
             <Route path='/viewattendance' element={<ViewAttendance />} />
             <Route path='/sattendance' element={<SselectAttendance />} />
             <Route path='/sattendanceavg' element={<SAttendanceAverage />} />
+            <Route path='/awoid' element={<AttendanceWoId />} />
+            <Route path='/awoid1' element={<AttendanceWoId1 />} />
             <Route path='/' element={<HomeScreen />} />
           </Routes>
         </main>

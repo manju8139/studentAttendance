@@ -1,8 +1,9 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
+import FnavBar from '../components/FnavBar'
 import { Store } from '../Store';
+import axios from 'axios';
 
-function FViewAttendance() {
+function AttendanceWoId1() {
     const { state } = useContext(Store);
 
     const [attendanceData, setAttendanceData] = useState([]);
@@ -22,7 +23,7 @@ function FViewAttendance() {
         const getStudId = localStorage.getItem('studid');
         // console.log("fdate", fromDate, " toDate", toDate, " student date", studentDate);
         // console.log("stateSem", fromDate, " toDate", toDate, " student date", studentDate);
-        if (student.studid == getStudId && student.subject === "c" && student.department === "cs" && student.semester === "1") {
+        if (student.subject === "c" && student.department === "cs" && student.semester === "1") {
             console.log("getStudId", getStudId, "student.studid", student.studid);
             console.log("state.sem", state.sem, "student.semester", student.semester);
             console.log("state.dept", state.dept, "student.department", student.department);
@@ -30,7 +31,6 @@ function FViewAttendance() {
         }
 
         return (
-            getStudId == student.studid &&
             state.sem === student.semester &&
             state.dept === student.department &&
             studentDate >= fromDate &&
@@ -39,7 +39,9 @@ function FViewAttendance() {
     });
     console.log("filtered data", filterAttendanceData);
     return (
-        <div>
+        <>
+            <FnavBar />
+            <hr />
 
             <h1>{state.fdate} - {state.tdate} - {state.sem} - {state.dept}</h1>
             <h1>EMPLOYEE ATTENDANCE LIST</h1>
@@ -54,8 +56,9 @@ function FViewAttendance() {
                     })
                 }
             </table>
-        </div>
+
+        </>
     )
 }
 
-export default FViewAttendance
+export default AttendanceWoId1
