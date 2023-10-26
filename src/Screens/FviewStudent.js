@@ -15,7 +15,7 @@ function FviewStudent() {
     }, []);
     console.log("students", students);
     const filterStudentData = students.filter((student) => {
-        return state.sem === student.semister && state.dept === student.department
+        return state.subject === student.semister && state.dept === student.department
     });
     console.log("filtered data", filterStudentData);
     return (

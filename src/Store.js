@@ -8,18 +8,18 @@ const initialState = {
     date: Date(),
     fdate: '',
     tdate: '',
-    sem: 'FULL STACK DEVELOPER',
+    sem: '1',
     studid: 0,
-    subject: 'C',
-    dept: '',
+    subject: 'FULL STACK DEVELOPER',
+    dept: 'PYTHON',
     count2: 0,
 };
 
 const reducer = (state, action) => {
     console.log("action.payload", action.payload);
     switch (action.type) {
-        case 'SELECT_SEM':
-            return { ...state, count: state.count + 1, sem: action.payload }
+        // case 'SELECT_SEM':
+        //     return { ...state, count: state.count + 1, sem: action.payload }
         case 'SELECT_SUB':
             return { ...state, subject: action.payload }
         case 'SELECT_DEPT':

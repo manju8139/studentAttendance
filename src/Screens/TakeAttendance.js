@@ -104,7 +104,7 @@ function TakeAttendance() {
     }
 
     const clickHandler = () => {
-        console.log("submitted")
+        navigate('/facultyhome');
     }
 
     useEffect(() => {
@@ -127,7 +127,7 @@ function TakeAttendance() {
 
         fetchData();
     }, [navigate, state.dept, state.subject]);
-    const foundStudent = studentData.filter((student) => student.semister === state.sem);
+    const foundStudent = studentData.filter((student) => student.semister === state.subject);
     console.log("foundStudent", foundStudent)
     return (
         <div>

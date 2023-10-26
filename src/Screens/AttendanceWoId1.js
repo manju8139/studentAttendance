@@ -21,17 +21,9 @@ function AttendanceWoId1() {
         const fromDate = new Date(state.fdate).toISOString().substring(0, 10);
         const toDate = new Date(state.tdate).toISOString().substring(0, 10);
         const getStudId = localStorage.getItem('studid');
-        // console.log("fdate", fromDate, " toDate", toDate, " student date", studentDate);
-        // console.log("stateSem", fromDate, " toDate", toDate, " student date", studentDate);
-        if (student.subject === "c" && student.department === "cs" && student.semester === "1") {
-            console.log("getStudId", getStudId, "student.studid", student.studid);
-            console.log("state.sem", state.sem, "student.semester", student.semester);
-            console.log("state.dept", state.dept, "student.department", student.department);
-            console.log("state.subject", state.subject, "student.subject", student.subject)
-        }
 
         return (
-            state.sem === student.semester &&
+            state.subject === student.semester &&
             state.dept === student.department &&
             studentDate >= fromDate &&
             studentDate <= toDate
@@ -43,7 +35,7 @@ function AttendanceWoId1() {
             <FnavBar />
             <hr />
 
-            <h1>{state.fdate} - {state.tdate} - {state.sem} - {state.dept}</h1>
+            <h1>{state.fdate} - {state.tdate} - {state.subject} - {state.dept}</h1>
             <h1>EMPLOYEE ATTENDANCE LIST</h1>
             <hr />
             <table>

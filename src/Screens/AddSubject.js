@@ -55,7 +55,7 @@ function AddSubject() {
     return (
         <div>
             <Anavbar />
-            <h2>Add Subject Details</h2>
+            <h2>Add Domain Details</h2>
             <form onSubmit={handleSubmit} className='formdesign'>
 
                 <div>

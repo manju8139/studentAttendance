@@ -10,7 +10,7 @@ function MarkAttendance() {
 
     const changeSemHandler = (e) => {
         const value = e.target.value;
-        dispatch({ type: 'SELECT_SEM', payload: value })
+        dispatch({ type: 'SELECT_SUB', payload: value })
     }
 
     // const changeSubHandler = (e) => {
@@ -80,7 +80,7 @@ function MarkAttendance() {
                 </select>
             </div>
 
-            <div><h3>Selected Role : {state.sem} - Selected Domain: {state.dept}</h3></div>
+            <div><h3>Selected Role : {state.subject} - Selected Domain: {state.dept}</h3></div>
             {/* <button className='button' onClick={submitHandler}>Select</button> */}
             <Link className='linkbutton' to='/takeattendance'>Take Attendance</Link>
         </>

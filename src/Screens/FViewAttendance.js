@@ -1,13 +1,12 @@
 import React from 'react';
 import Snavbar from '../components/Snavbar';
 import FselectAttendance from '../components/FselectAttendance';
-import FnavBar from '../components/FnavBar';
+
 
 function FViewAttendance() {
     return (
         <div>
-            <FnavBar />
-
+            <Snavbar />
             <hr />
             <FselectAttendance />
         </div>

@@ -8,9 +8,9 @@ function AttendanceWoId() {
     const [subject, setSubject] = useState([]);
     const { state, dispatch } = useContext(Store);
 
-    const changeSemHandler = (e) => {
+    const changeSubHandler = (e) => {
         const value = e.target.value;
-        dispatch({ type: 'SELECT_SEM', payload: value })
+        dispatch({ type: 'SELECT_SUB', payload: value })
     }
 
     // const changeSubHandler = (e) => {
@@ -91,7 +91,7 @@ function AttendanceWoId() {
             </div>
             <div>
                 <h1>Select Role</h1>
-                <select onChange={changeSemHandler}>
+                <select onChange={changeSubHandler}>
                     <option value="">Select Role</option>
                     <option value="FULL STACK DEVELOPER">FULL STACK DEVELOPER</option>
                     <option value="FRONT END DEVELOPER">FRONT END DEVELOPER</option>
@@ -109,7 +109,7 @@ function AttendanceWoId() {
                     })}
                 </select>
             </div>
-            <div><h3>Date : {state.date} - Selected Role : {state.sem} - Selected Dept: {state.dept}</h3></div>
+            <div><h3>Date : {state.date} - Selected Role : {state.subject} - Selected Dept: {state.dept}</h3></div>
             {/* <button className='button' onClick={submitHandler}>Select</button> */}
 
             <Link className='linkbutton' to='/awoid1'>View Attendance</Link>
